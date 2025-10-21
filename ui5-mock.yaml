@@ -29,3 +29,13 @@ server:
       configuration:
         component: zdm.zclearance_direct_manager
         ui5Theme: sap_fiori_3
+    - name: sap-fe-mockserver
+      beforeMiddleware: csp
+      configuration:
+        mountPath: /
+        services:
+          - urlPath: /sap/opu/odata/sap/ZHR_CLEARANCE_SRV
+            metadataPath: ./webapp/localService/metadata.xml
+            mockdataPath: ./webapp/localService/ZHR_CLEARANCE_SRV/data
+            generateMockData: true
+        annotations: []
